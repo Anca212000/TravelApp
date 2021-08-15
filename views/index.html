@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Travel App</title>
+        <link href="/static/css/styles.css" rel="stylesheet">
+        <link href="/static/customcss/main.css" rel="stylesheet">
+        <!-- <script type="text/javascript" src="/static/js/app.js"></script> -->
+    </head>
+
+    <body>
+        
+        <form method="POST" class="flex w-full h-full justify-center items-start mb-20">
+
+            <div class="space-y-4 text-center">
+                <div class="block">
+                    <img id="map" class="object-center mx-14" src="/static/img/map.png" />
+                </div>
+                <div class="block">
+                    Incepe calatoria din
+                </div>
+                <!-- <div class="flex block mx-20">
+                    <img id="targetSV" class="object-center" src="/static/img/loc.png" />&nbspSUCEAVA
+                </div> -->
+                <div class="flex block">
+                    <img id="targetSV" src="/static/img/loc.png" />
+                    &nbsp&nbsp<input type="text" id="text" name="text_start" value="SUCEAVA" autocomplete="off" required/>
+                </div>
+                <div class="block">
+                    spre
+                </div>
+                <div class="flex block">
+                    <img id="cityDest" class="object-center" src="/static/img/city.png" />
+                    &nbsp<input type="text" id="text" name="text_dest" placeholder="Numele orasului ..." autocomplete="off" required/>
+                </div>
+
+                <div class="block">
+                    <input class="mt-5" type="submit" id="submit" name="submit" value=" "/>
+                </div>
+
+            </div>
+
+        </form>
+
+        % if km_city:
+        <div class="w-full h-60 mt-5 text-center pt-10" id="street">
+            <div id="textKm" class="mx-auto">
+                {{ km_city }} km
+            </div>
+        </div>
+        % end
+
+        % if list_cities!=None:
+        % if list_cities[0] != "No cities":
+            <div class="w-full h-auto mt-20 mx-auto text-justify flex inline-flex">
+                <img id="imgMapTownSearch" class="align-top flex inline-flex ml-5 -mt-0" src="/static/img/mapsearch.png" />
+                <text class="flex inline-flex px-10" style="font-size:4vw;line-height:1em;">Daca vrei sa ajungi la destinatie pe o ruta directa, cu un cost optim atunci cam poti trece prin urmatoarele orase:</text>
+            </div>
+            % i = 0
+            % for name_city in list_cities:
+            <div class="mx-5 w-auto h-auto flex inline-flex">
+            <div class="my-10 space-x-8 float-left flex inline-flex flex-shrink" id="routeCities">
+                <text style="font-size:3.5vw;">{{ name_city }}</text>
+                % if i!= len(list_cities)-1:
+                    <img id="imgWay" style="vertical-align:middle;margin-top:-10px;;" src="/static/img/way.png" />
+                    <img id="imgWay" style="width:50px;height:50px;vertical-align:middle;margin-top:5px;" src="/static/img/right-arrow-red.png" />
+                % end
+                % i += 1
+            </div>
+            </div>
+        % end
+        % end
+
+        % if time_city:
+        <div class="w-full h-auto -mt-5 text-center" id="timeCity">
+            <img id="imgClock" class="object-center mx-auto" src="/static/img/clock.png" />
+            <div id="textTime" class="mx-auto px-60">
+                % intpart = str(time_city).split('.')[0]
+                % decimalpart = str(time_city).split('.')[-1]
+                {{ intpart }} ore si {{ decimalpart }} de minute pana la destinatie
+            </div>
+        </div>
+        % end
+
+        % if list_EUstreets!=None:
+        % if list_EUstreets[0] != "No Nat streets":
+        <div class="w-full h-auto mt-20 mx-auto text-justify flex inline-flex">
+            <img id="imgEuroStreet" class="align-top flex inline-flex ml-5 -mt-5" src="/static/img/road.png" />
+            <text class="flex inline-flex px-10" style="font-size:4vw;line-height:1em;">Daca alegi sa conduci pe soseaua nationala atunci exista o ruta ce contine urmatoarele orase:</text>
+        </div>
+        % i = 0
+        % for name_city in list_EUstreets:
+        <div class="mx-5 w-auto h-auto flex inline-flex">
+        <div class="my-10 space-x-8 float-left flex inline-flex flex-shrink" id="routeCities">
+            <text style="font-size:3vw;">{{ name_city }}</text>
+            % if i!= len(list_EUstreets)-1:
+                <img id="imgWay" style="vertical-align:middle;width:55px;height:60px;" src="/static/img/way.png" /> 
+                <img id="imgWay" style="width:50px;height:50px;vertical-align:middle;margin-top:5px;" src="/static/img/right-arrow-red.png" />
+            % end
+            % i += 1
+        </div>
+        </div>
+        % end
+        % end
+
+        % if info_cities and id_city != -1:
+        <div class="w-full h-auto mt-10 mb-10 text-justify">
+            % i = 0
+            <img id="imgSearch" class="align-top inline-flex ml-2" src="/static/img/search.png" />
+            <h1 class="inline-flex">Ce poti vizita in </h1>
+            <img id="imgInfoCity" class="align-top mt-4 inline-flex" src="/static/img/iconcity2.png" />
+            <h1 class="inline-flex" style="text-transform: uppercase;font-size:4vw;"> {{ destination }} </h1>
+            
+            % while i < len(info_cities[id_city]):
+            <div class="mx-20 mb-10" id="infoCity" style="border-radius:0px;">
+                <div class="flex space-x-4">
+                    <img id="imgInfoSight" class="align-middle ml-10 mt-5" src="/static/img/infoloc.png" />
+                    <text id="titleSight" class="mt-10"> {{ info_cities[id_city][i] }}</text>
+                </div>
+                % i += 1
+                <div id="imgTuristic" class="mx-auto w-2/4 h-80">
+                    <img class="object-cover w-full h-full" style="border-radius:20px;" src="/static/imgInfo/{{ info_cities[id_city][i] }}" />
+                </div>
+                % i += 1
+                <p class="ml-10 p-6 text-justify">{{ info_cities[id_city][i] }}</p>
+                % i += 1
+            </div>
+        </div>
+        % end
+
+        <footer class="h-10 mt-4">
+        </footer>
+
+    </body>
+</html>

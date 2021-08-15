@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Varela+Round&display=swap')
+
+$color1: #bd0054
+$color2: #ecfffb
+$color3: #9cff29
+$color4: #00a6c0
+$color5: #32d9cb
+$color6: #5f7174
+$color7: #a47283
+$color8: #6a888c
+$color9: #0DAFFF
+
+@function set_background($prop1,$link,$prop2,$sett2,$prop3,$sett3,$prop4,$sett4)
+    $prop1: url($link)
+    $prop2: $sett2
+    $prop3: $sett3
+    $prop4: $sett4
+    @if $sett2 == center
+        @return $prop1 + ' ' + $prop2 + '/' + $prop3 + ' ' + $prop4
+    @else
+        @return $prop1 + ' ' + $prop2 + ' ' + $prop3 + ' ' + $prop4
+
+@mixin set_font_text($sett1,$sett21,$sett22)
+    font-size: $sett1
+    font-family: $sett21,$sett22
+
+@mixin set_font_color($color,$shadow)
+    color: $color
+    text-shadow: 2px 1px 1px $shadow, -1px -1px 2px $shadow
+
+@mixin set_img_dimen($width,$height)
+    width: $width
+    height: $height
+
+body
+    background: set_background(background-image,'/static/img/bcktravelapp3.jpg',background-repeat,no-repeat,background-attachment,fixed,background-position,bottom)
+    background-size: cover
+    height: 100%
+    @include set_font_text(5vw,'Josefin Sans',sans-serif)
+    @include set_font_color($color1,$color5)
+    /*'5f7174'*/
+    /*font: set_font_text(font-size,25px,font-family,Josefin Sans,sans-serif)*/
+    & input[type="text"]
+        width: 550px
+        height: auto
+        padding: 15px 0 0 0
+        /*font-size: 45px*/
+        text-transform: uppercase
+        background-color: $color4
+        border: 1px solid $color3
+        border-radius: 20px 20px 0 0
+        border-bottom: 8px solid $color3
+        box-shadow: 2px 2px 10px $color8
+        /*text-indent: 10px*/
+        text-align: center
+        &:focus
+            outline: none
+            border: 1px solid $color1
+            border-bottom: 8px solid $color1
+            &::placeholder
+                color: transparent
+
+    ::placeholder
+        color: $color3
+        opacity: 0.5
+        font-size: 40px
+
+    :-ms-input-placeholder
+        color: $color3
+
+    ::-ms-input-placeholder
+        color: $color3
+
+    & input[type="submit"]
+        width: 150px
+        height: 150px
+        border-radius: 50%
+        background: set_background(background-image,'/static/img/send-nonactive.png',background-position,center,background-size,80%,background-repeat,no-repeat)
+        background-color: $color2
+        cursor: pointer
+        box-shadow: 0 0 0 8px $color9
+        overflow: hidden
+        -webkit-transition: background 0.3s, color 0.3s, box-shadow 0.3s
+        -moz-transition: background 0.3s, color 0.3s, box-shadow 0.3s
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s
+        &:hover
+            background: set_background(background-image,'/static/img/send.png',background-position,center,background-size,80%,background-repeat,no-repeat)
+            background-color: $color3
+            color: #702fa8
+            box-shadow: 0 0 0 8px rgba(255,255,255,.5)
+
+#map
+    @include set_img_dimen(40vw,auto)
+
+#targetSV
+    @include set_img_dimen(120px,auto)
+
+#cityDest
+    @include set_img_dimen(140px,auto)
+    vertical-align: middle
+
+#street
+    background: set_background(background-image,'/static/img/tile2.png',background-position,center,background-size,250px,background-repeat,repeat-x)
+    & #textKm
+        @include set_font_text(8vw,'Electrolize',sans-serif)
+        @include set_font_color($color6,$color3)
+        background-color: $color2//rgba(95, 113, 116, 1)//rgba(156, 255, 41, 0.5)
+        width: 40%
+        height: 160px
+        border-radius: 40px
+        border: 1px solid $color5
+        box-shadow: 2px 2px 2px $color3, -1px -1px 2px $color3
+
+#routeCities
+    & text
+        @include set_font_color($color1,$color9)
+
+#imgWay
+    @include set_img_dimen(100px,100px)
+
+// #imgPinCities
+//     @include set_img_dimen(80px,80px)
+#imgMapTownSearch
+    @include set_img_dimen(150px,150px)
+
+#imgEuroStreet
+    @include set_img_dimen(130px,160px)
+    vertical-align: middle
+    margin-top: 10px
+
+#imgClock
+    @include set_img_dimen(270px,auto)
+    vertical-align: middle
+
+#textTime
+    @include set_font_text(4vw,'Electrolize',sans-serif)
+    @include set_font_color($color2,$color9)
+
+#imgSearch
+    @include set_img_dimen(100px,100px)
+
+#imgInfoCity
+    @include set_img_dimen(80px,80px)
+
+#imgInfoSight
+    @include set_img_dimen(120px,120px)
+
+#infoCity
+    @include set_font_text(20px,'Century Gothic',sans-serif)
+    @include set_font_color($color2,$color9)
+    letter-spacing: 1px
+    background-color: rgba(95, 113, 116, 0.4)
+    border: 1px solid rgba(95, 113, 116, 0.1)
+    box-shadow: 0 0 20px -1px rgba(95, 113, 116, 0.6)
+    text-indent: 1cm
+    & #titleSight
+        font-size: 30px
+        font-weight: bold
+        letter-spacing: 4px
+        text-indent: 0
+        text-transform: uppercase
+
+#imgTuristic
+    background-color: gray
+    border-radius: 20px
+    box-shadow: 2px 2px 20px -5px $color5

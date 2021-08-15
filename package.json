@@ -1,0 +1,15 @@
+{
+  "name": "TravelApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-css":"tailwindcss build static/src/styles.css -o static/src/tailwindcss/styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^2.1.2"
+  }
+}

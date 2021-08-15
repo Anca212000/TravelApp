@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Electrolize&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Varela+Round&display=swap");
+body {
+  background: url("/static/img/bcktravelapp3.jpg") no-repeat fixed bottom;
+  background-size: cover;
+  height: 100%;
+  font-size: 5vw;
+  font-family: "Josefin Sans", sans-serif;
+  color: #bd0054;
+  text-shadow: 2px 1px 1px #32d9cb, -1px -1px 2px #32d9cb;
+  /*'5f7174'*/
+  /*font: set_font_text(font-size,25px,font-family,Josefin Sans,sans-serif)*/
+  -ms-input-placeholder-color: #9cff29;
+}
+
+body input[type="text"] {
+  width: 550px;
+  height: auto;
+  padding: 15px 0 0 0;
+  /*font-size: 45px*/
+  text-transform: uppercase;
+  background-color: #00a6c0;
+  border: 1px solid #9cff29;
+  border-radius: 20px 20px 0 0;
+  border-bottom: 8px solid #9cff29;
+  box-shadow: 2px 2px 10px #6a888c;
+  /*text-indent: 10px*/
+  text-align: center;
+}
+
+body input[type="text"]:focus {
+  outline: none;
+  border: 1px solid #bd0054;
+  border-bottom: 8px solid #bd0054;
+}
+
+body input[type="text"]:focus::placeholder {
+  color: transparent;
+}
+
+body ::placeholder {
+  color: #9cff29;
+  opacity: 0.5;
+  font-size: 40px;
+}
+
+body ::-ms-input-placeholder {
+  color: #9cff29;
+}
+
+body input[type="submit"] {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: url("/static/img/send-nonactive.png") center/80% no-repeat;
+  background-color: #ecfffb;
+  cursor: pointer;
+  box-shadow: 0 0 0 8px #0DAFFF;
+  overflow: hidden;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+body input[type="submit"]:hover {
+  background: url("/static/img/send.png") center/80% no-repeat;
+  background-color: #9cff29;
+  color: #702fa8;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+#map {
+  width: 40vw;
+  height: auto;
+}
+
+#targetSV {
+  width: 120px;
+  height: auto;
+}
+
+#cityDest {
+  width: 140px;
+  height: auto;
+  vertical-align: middle;
+}
+
+#street {
+  background: url("/static/img/tile2.png") center/250px repeat-x;
+}
+
+#street #textKm {
+  font-size: 8vw;
+  font-family: "Electrolize", sans-serif;
+  color: #5f7174;
+  text-shadow: 2px 1px 1px #9cff29, -1px -1px 2px #9cff29;
+  background-color: #ecfffb;
+  width: 40%;
+  height: 160px;
+  border-radius: 40px;
+  border: 1px solid #32d9cb;
+  box-shadow: 2px 2px 2px #9cff29, -1px -1px 2px #9cff29;
+}
+
+#routeCities text {
+  color: #bd0054;
+  text-shadow: 2px 1px 1px #0DAFFF, -1px -1px 2px #0DAFFF;
+}
+
+#imgWay {
+  width: 100px;
+  height: 100px;
+}
+
+#imgMapTownSearch {
+  width: 150px;
+  height: 150px;
+}
+
+#imgEuroStreet {
+  width: 130px;
+  height: 160px;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+
+#imgClock {
+  width: 270px;
+  height: auto;
+  vertical-align: middle;
+}
+
+#textTime {
+  font-size: 4vw;
+  font-family: "Electrolize", sans-serif;
+  color: #ecfffb;
+  text-shadow: 2px 1px 1px #0DAFFF, -1px -1px 2px #0DAFFF;
+}
+
+#imgSearch {
+  width: 100px;
+  height: 100px;
+}
+
+#imgInfoCity {
+  width: 80px;
+  height: 80px;
+}
+
+#imgInfoSight {
+  width: 120px;
+  height: 120px;
+}
+
+#infoCity {
+  font-size: 20px;
+  font-family: "Century Gothic", sans-serif;
+  color: #ecfffb;
+  text-shadow: 2px 1px 1px #0DAFFF, -1px -1px 2px #0DAFFF;
+  letter-spacing: 1px;
+  background-color: rgba(95, 113, 116, 0.4);
+  border: 1px solid rgba(95, 113, 116, 0.1);
+  box-shadow: 0 0 20px -1px rgba(95, 113, 116, 0.6);
+  text-indent: 1cm;
+}
+
+#infoCity #titleSight {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-indent: 0;
+  text-transform: uppercase;
+}
+
+#imgTuristic {
+  background-color: gray;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px -5px #32d9cb;
+}
